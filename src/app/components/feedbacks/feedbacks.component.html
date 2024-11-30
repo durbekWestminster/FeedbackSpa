@@ -1,0 +1,10 @@
+<div class="feedback-list">
+  <div class="feedback-item" *ngFor="let feedback of feedbacks">
+    <div class="feedback-content">
+      <h3>{{ feedback.title }}</h3>
+      <p>{{ feedback.content }}</p>
+      <small>Sender: {{ feedback.sender.name }}</small>
+    </div>
+    <button (click)="deleteFeedback(feedback.id)" class="delete-button">Delete</button>
+  </div>
+</div>
