@@ -1,22 +1,18 @@
+/* Header container */
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 8px; /* optional padding for spacing */
+  justify-content: space-between;
+  padding: 16px 32px;
+  background-color: #f8f9fa; /* Light gray background */
 }
 
-app-header {
-  flex: 1; /* Takes up remaining space on the left */
+/* Actions container */
+.header-actions {
+  display: flex;
+  gap: 16px; /* Space between buttons */
 }
 
-app-button {
-  margin-left: 16px; /* Adds spacing between buttons */
-}
-
-.header > :last-child {
-  margin-left: 0; /* Ensure no spacing on the last button */
-}
-
-.header > app-button:nth-child(2) {
-  margin-right: 16px; /* Extra rule if buttons start out of order */
+*{
+  font-family: Arial, sans-serif;
 }

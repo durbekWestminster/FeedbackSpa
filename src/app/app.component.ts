@@ -6,6 +6,7 @@ import {AddFeedbackComponent} from './components/add.feedback/add.feedback.compo
 import {AppScreen, UiService} from './services/ui.service';
 import {Subscription} from 'rxjs';
 import {NgIf} from '@angular/common';
+import {AddSenderComponent} from './components/add.sender/add.sender.component';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ import {NgIf} from '@angular/common';
     FeedbacksComponent,
     AddFeedbackComponent,
     NgIf,
+    AddSenderComponent,
   ],
   providers: [UiService],
   styleUrl: './app.component.css'

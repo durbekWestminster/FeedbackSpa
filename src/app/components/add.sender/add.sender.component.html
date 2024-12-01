@@ -1,0 +1,17 @@
+<div class="sender-form-overlay">
+  <div class="sender-form-container">
+    <button class="close-button" id="closeButton" (click)="close()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="white">
+        <path d="M18 6L6 18M6 6l12 12" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+    <h1>Add Sender</h1>
+    <form id="senderForm" (ngSubmit)="submitSender()">
+      <div class="form-group">
+        <label for="name">Sender Name</label>
+        <input type="text" id="name" name="name" [(ngModel)]="sender.name" placeholder="Enter sender's name" required>
+      </div>
+      <button type="submit" class="submit-button">Add Sender</button>
+    </form>
+  </div>
+</div>
