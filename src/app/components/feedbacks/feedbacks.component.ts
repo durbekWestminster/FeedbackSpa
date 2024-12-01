@@ -10,7 +10,8 @@ import {NgForOf} from '@angular/common';
   imports: [
     NgForOf,
   ],
-  styleUrl: './feedbacks.component.css'
+  styleUrl: './feedbacks.component.css',
+  providers: [FeedbackService],
 })
 export class FeedbacksComponent implements OnInit {
   constructor(private feedbackService: FeedbackService) {}

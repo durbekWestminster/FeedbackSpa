@@ -1,0 +1,28 @@
+<div class="feedback-form-overlay">
+  <div class="feedback-form-container">
+    <button class="close-button" id="closeButton" (click)="close()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="white">
+        <path d="M18 6L6 18M6 6l12 12" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+    <h1>Send Feedback</h1>
+    <form id="feedbackForm" (ngSubmit)="submitFeedback()">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" [(ngModel)]="feedback.title" placeholder="Enter feedback title" required>
+      </div>
+      <div class="form-group">
+        <label for="content">Content</label>
+        <textarea id="content" name="content" [(ngModel)]="feedback.content" placeholder="Enter your feedback" rows="4" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="sender">Sender</label>
+        <select id="sender" name="sender" [(ngModel)]="feedback.sender" required>
+          <option value="" disabled selected>Select a sender</option>
+          <option *ngFor="let sender of senders" [value]="sender.id">{{ sender.name }}</option>
+        </select>
+      </div>
+      <button type="submit" class="submit-button">Send Feedback</button>
+    </form>
+  </div>
+</div>

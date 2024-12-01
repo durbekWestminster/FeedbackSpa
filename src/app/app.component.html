@@ -1,10 +1,11 @@
 <div>
   <div class="header">
     <app-header></app-header>
-    <app-button text="Send Feedback"></app-button>
-    <app-button text="Add Sender"></app-button>
+    <app-button text="Send Feedback" (click)="sendFeedback()"></app-button>
+    <app-button text="Add Sender" (click)="addSender()"></app-button>
   </div>
   <app-feedbacks>
 
   </app-feedbacks>
+  <app-addfeedback *ngIf="currentScreen === AppScreen.sendFeedback"></app-addfeedback>
 </div>
