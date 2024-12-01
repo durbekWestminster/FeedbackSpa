@@ -13,11 +13,11 @@
       </div>
       <div class="form-group">
         <label for="content">Content</label>
-        <textarea id="content" name="content" [(ngModel)]="feedback.content" placeholder="Enter your feedback" rows="4" required></textarea>
+        <textarea id="content" name="content" [(ngModel)]="feedback.description" placeholder="Enter your feedback" rows="4" required></textarea>
       </div>
       <div class="form-group">
         <label for="sender">Sender</label>
-        <select id="sender" name="sender" [(ngModel)]="feedback.sender" required>
+        <select id="sender" name="sender" [(ngModel)]="feedback.senderId" required>
           <option value="" disabled selected>Select a sender</option>
           <option *ngFor="let sender of senders" [value]="sender.id">{{ sender.name }}</option>
         </select>

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Feedback} from '../../interfaces/feedback';
 import {FeedbackService} from '../../services/feedback.service';
 import {NgForOf} from '@angular/common';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-feedbacks',
@@ -11,21 +12,27 @@ import {NgForOf} from '@angular/common';
     NgForOf,
   ],
   styleUrl: './feedbacks.component.css',
-  providers: [FeedbackService],
 })
 export class FeedbacksComponent implements OnInit {
   constructor(private feedbackService: FeedbackService) {}
 
+  subscription: Subscription
+
   feedbacks: Feedback[]
 
   deleteFeedback(id: number) {
-
+    this.feedbackService.deleteFeedback(id)
   }
 
   ngOnInit(): void {
-    this.feedbackService.getFeedbacks().subscribe({
-      next: (data) => (this.feedbacks = data),
-      error: (err) => console.error('Error fetching feedbacks', err)
-    });
+    this.fetchFeedbacks()
+    this.feedbackService.fetchFeedbacks()
+  }
+  
+  fetchFeedbacks() {
+    this.subscription = this.feedbackService.listenToFeedbackChanges().subscribe((value) => {
+      this.feedbacks = value
+      console.log(`qwe got feedbacks ${value}`)
+    })
   }
 }

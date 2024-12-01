@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {AppScreen, UiService} from '../../services/ui.service';
 import {FeedbackService} from '../../services/feedback.service';
+import { CreateSenderRequest } from '../../interfaces/create_sender_request';
 
 @Component({
   selector: 'app-addsender',
@@ -23,6 +24,10 @@ export class AddSenderComponent {
 
   submitSender() {
     this.uiService.toggleScreen(AppScreen.feedbacks)
+    var createSenderRequest: CreateSenderRequest = {
+      name: this.sender.name
+    }
+    this.feedbackService.createSender(createSenderRequest)
   }
 
   close() {

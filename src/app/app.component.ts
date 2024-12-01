@@ -7,6 +7,7 @@ import {AppScreen, UiService} from './services/ui.service';
 import {Subscription} from 'rxjs';
 import {NgIf} from '@angular/common';
 import {AddSenderComponent} from './components/add.sender/add.sender.component';
+import { FeedbackService } from './services/feedback.service';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,7 @@ import {AddSenderComponent} from './components/add.sender/add.sender.component';
     NgIf,
     AddSenderComponent,
   ],
-  providers: [UiService],
+  providers: [UiService, FeedbackService],
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
