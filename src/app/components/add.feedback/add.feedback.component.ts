@@ -4,6 +4,7 @@ import {Sender} from '../../interfaces/sender';
 import {FeedbackService} from '../../services/feedback.service';
 import {NgForOf} from '@angular/common';
 import {FormsModule} from '@angular/forms';
+import { SendFeedbackRequest } from '../../interfaces/send_feedback_request';
 
 // @ts-ignore
 @Component({
@@ -21,10 +22,10 @@ export class AddFeedbackComponent implements OnInit {
   }
 
   senders: Sender[]
-  feedback = {
+  feedback: SendFeedbackRequest = {
     title: '',
-    content: '',
-    sender: null
+    description: '',
+    senderId: 0
   };
 
   ngOnInit(): void {
@@ -37,5 +38,6 @@ export class AddFeedbackComponent implements OnInit {
 
   submitFeedback() {
     this.uiService.toggleScreen(AppScreen.feedbacks)
+    this.feedbackService.sendFeedback(this.feedback)
   }
 }
